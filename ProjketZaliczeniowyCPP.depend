@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1465388270 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\main.cpp
+	<iostream>
+
+1465393848 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\file.cpp
+	"File.h"
+
+1465393974 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\file.h
+	<string>
+	<fstream>
+

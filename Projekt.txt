@@ -1,0 +1,10 @@
+:==================:
+Plik movie.csv:
+m_title,m_type,m_date,m_director,m_time,m_rating,m_description,m_actors,m_addDate;
+
+Plik customers.csv:
+c_name,c_surname,c_address,c_city,c_phone,c_regDate;
+
+Plik hires.csv:
+h_name,h_surname,h_address,h_title,h_hireDate,h_returnDate,h_deliverDate;
+:==================:

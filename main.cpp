@@ -1,3 +1,7 @@
+/*
+Temat i opis projektu w pliku PDF.
+Autor: Wiktor Boniecki
+*/
 #include <iostream>
 
 using namespace std;
