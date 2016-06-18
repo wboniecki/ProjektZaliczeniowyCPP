@@ -32,6 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Config.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="File.cpp" />
+		<Unit filename="File.h" />
+		<Unit filename="Hires.cpp" />
+		<Unit filename="Hires.h" />
+		<Unit filename="Movies.cpp" />
+		<Unit filename="Movies.h" />
+		<Unit filename="Program.cpp" />
+		<Unit filename="Program.h" />
+		<Unit filename="Users.cpp" />
+		<Unit filename="Users.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

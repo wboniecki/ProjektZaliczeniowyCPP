@@ -1,20 +1,29 @@
 #ifndef FILE_H
 #define FILE_H
 #include <string>
+#include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
 class File
 {
     public:
-        File(char* fileName);
+        File(char* fileName, int xsize, int ysize);
         virtual ~File();
-        void openFile();
-        void closeFile();
+        void readFile();
+        void saveFile();
+        void showRawDb();
+        void showRawRecord(int n);
     protected:
         char* fileName;
-        //ifstream f;
+        int xsize;
+        int ysize;
+        string** raw_db;
+        string line;
+        int rows;
+        int cols;
     private:
 
 };

@@ -3,11 +3,13 @@ Temat i opis projektu w pliku PDF.
 Autor: Wiktor Boniecki
 */
 #include <iostream>
+#include "Program.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Program p;
+    p.start();
     return 0;
 }

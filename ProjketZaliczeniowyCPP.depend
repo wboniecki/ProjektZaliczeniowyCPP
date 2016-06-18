@@ -9,13 +9,42 @@
 	<string>
 	<fstream>
 
-1466000114 source:c:\users\boniek\cpp\projektzaliczeniowycpp\file.cpp
+1466284997 source:c:\users\boniek\cpp\projektzaliczeniowycpp\file.cpp
 	"File.h"
 
-1466000114 c:\users\boniek\cpp\projektzaliczeniowycpp\file.h
+1466285003 c:\users\boniek\cpp\projektzaliczeniowycpp\file.h
 	<string>
-	<fstream>
-
-1466000114 source:c:\users\boniek\cpp\projektzaliczeniowycpp\main.cpp
 	<iostream>
+	<fstream>
+	<sstream>
+
+1466285062 source:c:\users\boniek\cpp\projektzaliczeniowycpp\main.cpp
+	<iostream>
+	"Program.h"
+
+1466284736 c:\users\boniek\cpp\projektzaliczeniowycpp\config.h
+	"Movies.h"
+	"Users.h"
+	"Hires.h"
+
+1466283642 source:c:\users\boniek\cpp\projektzaliczeniowycpp\movies.cpp
+	"Movies.h"
+
+1466283481 c:\users\boniek\cpp\projektzaliczeniowycpp\movies.h
+	"File.h"
+
+1466283690 source:c:\users\boniek\cpp\projektzaliczeniowycpp\users.cpp
+	"Users.h"
+
+1466283748 c:\users\boniek\cpp\projektzaliczeniowycpp\users.h
+	"File.h"
+
+1466283808 source:c:\users\boniek\cpp\projektzaliczeniowycpp\hires.cpp
+	"Hires.h"
+
+1466283841 c:\users\boniek\cpp\projektzaliczeniowycpp\hires.h
+	"File.h"
+
+1466285763 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
+	"Config.h"
 
