@@ -1,6 +1,7 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 #include "Config.h"
+#include <limits>
 
 class Program
 {
@@ -8,11 +9,11 @@ class Program
         Program();
         virtual ~Program();
         void start();
-        void login(string username, string password);
     protected:
 
     private:
-        bool isLogin = false;
+        void login(string username, string password);
+        bool isLogin;
 };
 
 #endif // PROGRAM_H

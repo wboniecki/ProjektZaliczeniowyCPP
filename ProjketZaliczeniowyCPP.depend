@@ -45,6 +45,10 @@
 1466283841 c:\users\boniek\cpp\projektzaliczeniowycpp\hires.h
 	"File.h"
 
-1466285763 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
+1466289275 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
 	"Config.h"
+	<limits>
+
+1466289219 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
+	"Program.h"
 
