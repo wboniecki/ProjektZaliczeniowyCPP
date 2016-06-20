@@ -31,6 +31,7 @@ class Users : public File
 
     private:
         Hires* hires_db;
+        string generateSalt(string username);
 };
 
 #endif // USERS_H

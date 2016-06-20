@@ -25,22 +25,23 @@
 	<iostream>
 	"Program.h"
 
-1466284736 c:\users\boniek\cpp\projektzaliczeniowycpp\config.h
+1466458350 c:\users\boniek\cpp\projektzaliczeniowycpp\config.h
 	"Movies.h"
 	"Users.h"
-	"Hires.h"
 
 1466283642 source:c:\users\boniek\cpp\projektzaliczeniowycpp\movies.cpp
 	"Movies.h"
 
-1466283481 c:\users\boniek\cpp\projektzaliczeniowycpp\movies.h
+1466458350 c:\users\boniek\cpp\projektzaliczeniowycpp\movies.h
 	"File.h"
 
-1466283690 source:c:\users\boniek\cpp\projektzaliczeniowycpp\users.cpp
+1466462197 source:c:\users\boniek\cpp\projektzaliczeniowycpp\users.cpp
 	"Users.h"
 
-1466283748 c:\users\boniek\cpp\projektzaliczeniowycpp\users.h
+1466459808 c:\users\boniek\cpp\projektzaliczeniowycpp\users.h
 	"File.h"
+	"Config.h"
+	"Hires.h"
 
 1466283808 source:c:\users\boniek\cpp\projektzaliczeniowycpp\hires.cpp
 	"Hires.h"
@@ -48,11 +49,12 @@
 1466283841 c:\users\boniek\cpp\projektzaliczeniowycpp\hires.h
 	"File.h"
 
-1466289275 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
+1466458350 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
 	"Config.h"
 	<limits>
+	<cstdlib>
 
-1466289219 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
+1466458350 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
 	"Program.h"
 
 1466443058 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.cpp
