@@ -1,13 +1,16 @@
 # depslib dependency file v1.0
-1465388270 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\main.cpp
+1466443061 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\main.cpp
 	<iostream>
+	"Program.h"
 
-1465393848 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\file.cpp
+1466443058 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\file.cpp
 	"File.h"
 
-1465393974 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\file.h
+1466443058 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\file.h
 	<string>
+	<iostream>
 	<fstream>
+	<sstream>
 
 1466284997 source:c:\users\boniek\cpp\projektzaliczeniowycpp\file.cpp
 	"File.h"
@@ -51,4 +54,36 @@
 
 1466289219 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
 	"Program.h"
+
+1466443058 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.cpp
+	"Hires.h"
+
+1466443058 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.h
+	"File.h"
+
+1466455340 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\program.h
+	"Config.h"
+	<limits>
+	<cstdlib>
+
+1466454064 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\config.h
+	"Movies.h"
+	"Users.h"
+
+1466443827 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\movies.h
+	"File.h"
+
+1466455919 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\users.h
+	"File.h"
+	"Config.h"
+	"Hires.h"
+
+1466443058 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\movies.cpp
+	"Movies.h"
+
+1466456173 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\program.cpp
+	"Program.h"
+
+1466455204 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\users.cpp
+	"Users.h"
 

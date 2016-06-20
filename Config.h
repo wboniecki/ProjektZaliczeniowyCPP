@@ -1,9 +1,6 @@
 #ifndef CONFIG_H_INCLUDED
 #define CONFIG_H_INCLUDED
-/*INCLUDES*/
-#include "Movies.h"
-#include "Users.h"
-#include "Hires.h"
+
 /*DEFINES*/
 #define MAX_DB_XSIZE 1000
 #define MAX_DB_YSIZE 10
@@ -14,5 +11,8 @@
 #define USERS_FILE "users.csv"
 #define HIRES_FILE "hires.csv"
 
+/*INCLUDES*/
+#include "Movies.h"
+#include "Users.h"
 
 #endif // CONFIG_H_INCLUDED

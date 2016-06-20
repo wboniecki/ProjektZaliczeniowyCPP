@@ -2,6 +2,7 @@
 #define PROGRAM_H
 #include "Config.h"
 #include <limits>
+#include <cstdlib>
 
 class Program
 {
@@ -13,7 +14,10 @@ class Program
 
     private:
         void login(string username, string password);
+        int login_id;
         bool isLogin;
+        Movies* movie_db;
+        Users* users_db;
 };
 
 #endif // PROGRAM_H
