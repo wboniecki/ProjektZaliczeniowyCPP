@@ -14,6 +14,8 @@
 #define U_REGDATE 9
 
 /*INCLUDES*/
+#include "time.h"
+#include <cstdlib>
 #include "Config.h"
 #include "Hires.h"
 
@@ -27,6 +29,17 @@ class Users : public File
         bool isUsernameExist(string username);
         bool isPasswordOk(string login, string pass);
         string getUserId(string username);
+        void showAllUsers();
+        bool isUserCanBeDel(string id);
+        void remUser(string id);
+        bool isIdExist(string id);
+        void modUser(string id);
+        void addUser(string* new_user);
+        string getUserFullName(string id);
+        bool isUserAdmin(string id);
+        void makeUserAdmin(string id);
+        void makeAdminUser(string id);
+        void showUserById(string id);
     protected:
 
     private:

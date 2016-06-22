@@ -7,7 +7,7 @@ class Hires : public File
     public:
         Hires(char* fileName, int xsize, int ysize);
         virtual ~Hires();
-
+        int currentUserHiresCount(string id);
     protected:
 
     private:

@@ -3,7 +3,7 @@ Plik movie.csv - 9 records:
 m_title,m_type,m_date,m_director,m_time,m_rating,m_description,m_actors,m_addDate;
 
 Plik users.csv - 10 records:
-c_id,c_login,c_pass,c_acces,c_name,c_surname,c_address,c_city,c_phone,c_regDate;
+u_id,u_login,u_pass,u_acces,u_name,u_surname,u_address,u_city,u_phone,u_regDate;
 
 Plik hires.csv - 5 records:
 h_id,h_title,h_hireDate,h_returnDate,h_deliverDate;

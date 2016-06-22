@@ -14,8 +14,12 @@ class Program
 
     private:
         void login(string username, string password);
-        int login_id;
+        string login_id;
         bool isLogin;
+        void addUser();
+        void remUser();
+        void modUser();
+        void addMovie();
         Movies* movie_db;
         Users* users_db;
 };
