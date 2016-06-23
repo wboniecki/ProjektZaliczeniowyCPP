@@ -8,14 +8,21 @@
 #define H_RETURNDATE 3
 #define H_DELIVERDATE 4
 
+#define USERLIMIT 2
+
+#include "time.h"
+
 class Hires : public File
 {
     public:
         Hires(char* fileName, int xsize, int ysize);
         virtual ~Hires();
+        void hireMovie(string id, string title);
         int currentUserHiresCount(string id);
+        bool canUserHire(string id);
         void setTitle(string oldVal, string newVal);
         bool isMovieHire(string title);
+        void showUserHires(string id);
     protected:
 
     private:

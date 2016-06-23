@@ -51,7 +51,13 @@ void Program::start() {
         cout << "Witaj, " << users_db->getUserFullName(login_id) << endl; // tu dodac powitanie imienne
         int choice = -1; //basic menu
         cout << "MENU:" << endl;
-        cout <<"0. KONIEC PROGRAMU." << endl;
+        cout << "0. KONIEC PROGRAMU." << endl;
+        cout << "1. Wypozycz film" << endl;
+        cout << "2. Oddaj film" << endl;
+        cout << "3. Moje wypozyczenia" << endl;
+        cout << "4. Pokaz dostepne filmy" << endl;
+        cout << "5. Pokaz wszystkie filmy" << endl;
+        cout << "6. Pokaz film szczegolowo" << endl;
         if(users_db->isUserAdmin(login_id)) {
             cout << "OPCJE ADMINISTRATORA:" << endl;
             cout << "101. Dodaj uzytkownika" << endl;
@@ -94,6 +100,10 @@ void Program::start() {
         switch(choice) {
         case 0: //wyjscie z programu
             cout << "Do zobaczenia!";
+            break;
+        case 1: // hire movie
+            hireMovie();
+            goto START;
             break;
         case 101: // Add user
             addUser();
@@ -468,6 +478,31 @@ void Program::remMovie() {
             cout << "Wybierz raz jeszcze: ";
             getline(cin,title);
     }
-    movie_db->removeMovie(movie_db->changeToNonComma(title));
-    movie_db->saveFile();
+    if(movie_db->isMovieExist(movie_db->changeToNonComma(title))) {
+        movie_db->removeMovie(movie_db->changeToNonComma(title));
+        movie_db->saveFile();
+    }
+}
+
+void Program::hireMovie() {
+    cout << "Podaj film ktory chcesz wypozyczyc:" << endl;
+    string title;
+    cin.ignore(100, '\n');
+    getline(cin,title);
+    while(!cin.good()) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,title);
+    }
+    if(!movie_db->isMovieExist(title)) {
+        cout << "Film nie istnieje!" << endl;
+        goto KONIEC;
+    }
+    if(movie_db->hireMovie(login_id,title)) {
+        cout << "Wypozyczono: " << title << endl;
+    }
+
+    KONIEC:
+        cout << endl;
 }

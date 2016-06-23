@@ -31,6 +31,7 @@ class Movies : public File
         void showNonHiresMovies();
         void showMovieInfoFull(string title);
         bool isMovieExist(string title);
+        bool hireMovie(string id, string title);
     protected:
 
     private:

@@ -109,13 +109,40 @@ void Movies::modMovie(string title) {
 }
 
 void Movies::removeMovie(string title) {
+    bool isDel = false;
     //sprawdzenie czy tytul jest wyporzyczony
     if(hires_db->isMovieHire(changeToNonComma(title))) {
-        cout << "Nie mozna usunac. Film jest wyporzyczony!" << endl;
+        cout << "Nie mozna usunac. Film jest wypozyczony!" << endl;
         goto KONIEC;
     }
+    for (int i=0;i<rows;i++) {
+        if(raw_db[i][M_TITLE] == title) {
+            isDel = true;
+        }
+        if(isDel && i<rows-1) {
+            raw_db[i][M_TITLE] = raw_db[i+1][M_TITLE];
+            raw_db[i][M_TYPE] = raw_db[i+1][M_TYPE];
+            raw_db[i][M_DATE] = raw_db[i+1][M_DATE];
+            raw_db[i][M_DIRECTOR] = raw_db[i+1][M_DIRECTOR];
+            raw_db[i][M_TIME] = raw_db[i+1][M_TIME];
+            raw_db[i][M_RATING] = raw_db[i+1][M_RATING];
+            raw_db[i][M_DESCRIPTION] = raw_db[i+1][M_DESCRIPTION];
+            raw_db[i][M_ACTORS] = raw_db[i+1][M_ACTORS];
+            raw_db[i][M_ADDDATE] = raw_db[i+1][M_ADDDATE];
+        }
+    }
+    rows--;
+    raw_db[rows][M_TITLE] = "";
+    raw_db[rows][M_TYPE] = "";
+    raw_db[rows][M_DATE] = "";
+    raw_db[rows][M_DIRECTOR] = "";
+    raw_db[rows][M_TIME] = "";
+    raw_db[rows][M_RATING] = "";
+    raw_db[rows][M_DESCRIPTION] = "";
+    raw_db[rows][M_ACTORS] = "";
+    raw_db[rows][M_ADDDATE] = "";
     KONIEC:
-        cout << endl;
+    cout << endl;
 }
 
 void Movies::showMovieInfoFull(string title) {
@@ -136,7 +163,7 @@ void Movies::showMovieInfoFull(string title) {
         }
     }
     if(!isFind) {
-        cout << title << " not found in database! :(";
+        cout << changeToComma(title) << " not found in database! :(";
     }
 }
 
@@ -148,4 +175,14 @@ bool Movies::isMovieExist(string title) {
     }
     cout << title << " is not exist in database" << endl;
     return false;
+}
+
+bool Movies::hireMovie(string id, string title) {
+    if(!hires_db->isMovieHire(title) && hires_db->canUserHire(id)) {
+        hires_db->hireMovie(id,title);
+        hires_db->saveFile();
+        return true;
+    } else {
+        return false;
+    }
 }

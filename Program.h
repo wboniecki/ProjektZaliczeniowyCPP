@@ -22,6 +22,7 @@ class Program
         void addMovie();
         void remMovie();
         void modMovie();
+        void hireMovie();
         Movies* movie_db;
         Users* users_db;
 };
