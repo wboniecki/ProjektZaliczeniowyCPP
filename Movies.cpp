@@ -31,6 +31,93 @@ void Movies::addMovie(string* new_movie_c) {
     rows++;
 }
 
+void Movies::modMovie(string title) {
+    int m_pos = -1;
+    string new_value;
+    if(!isMovieExist(title)) {
+        goto KONIEC;
+    }
+    for(int i=0;i<rows;i++) {
+        if(raw_db[i][M_TITLE] == title) {
+            m_pos = i;
+        }
+    }
+    START:
+    cout << "Wybierz co chcesz modyfikowac" << endl;
+    cout << "1. Tytul" << endl;
+    cout << "2. Typ" << endl;
+    cout << "3. Data" << endl;
+    cout << "4. Rezyser" << endl;
+    cout << "5. Czas" << endl;
+    cout << "6. Ocena" << endl;
+    cout << "7. Aktorzy" << endl;
+    cout << "0. Powrot do menu" << endl;
+    int choice;
+    cin >> choice;
+    while(!cin.good() || choice < 0 || choice > 7) {
+            cin.clear();
+            cin.sync();
+            cout << "Wrong number." << endl;
+            cout << "Wybierz raz jeszcze: ";
+            cin >> choice;
+    }
+    if(choice!=0) {
+        cout << "Wprowadz nowa wartosc:" << endl;
+        cin.ignore(100, '\n');
+        getline(cin,new_value);
+        while(!cin.good()) {
+                cin.clear();
+                cin.sync();
+                cout << "Blad. Wybierz raz jeszcze: ";
+                getline(cin,new_value);
+        }
+    }
+    new_value = changeToNonComma(new_value);
+    switch (choice) {
+    case 0:
+        goto KONIEC;
+        break;
+    case 1: //Tytul
+        raw_db[m_pos][M_TITLE] = new_value;
+        hires_db->setTitle(title, new_value);
+        hires_db->saveFile();
+        break;
+    case 2: //Typ
+        raw_db[m_pos][M_TYPE] = new_value;
+        break;
+    case 3: //Data
+        raw_db[m_pos][M_DATE] = new_value;
+        break;
+    case 4: //Rezyser
+        raw_db[m_pos][M_DIRECTOR] = new_value;
+        break;
+    case 5: //Czas
+        raw_db[m_pos][M_TIME] = new_value;
+        break;
+    case 6: //Ocena
+        raw_db[m_pos][M_RATING] = new_value;
+        break;
+    case 7: //Akotrzy
+        raw_db[m_pos][M_ACTORS] = new_value;
+        break;
+    default:
+        break;
+    }
+    goto START;
+    KONIEC:
+    showMovieInfoFull(raw_db[m_pos][M_TITLE]);
+}
+
+void Movies::removeMovie(string title) {
+    //sprawdzenie czy tytul jest wyporzyczony
+    if(hires_db->isMovieHire(changeToNonComma(title))) {
+        cout << "Nie mozna usunac. Film jest wyporzyczony!" << endl;
+        goto KONIEC;
+    }
+    KONIEC:
+        cout << endl;
+}
+
 void Movies::showMovieInfoFull(string title) {
     bool isFind = false;
     for(int i=0;i<rows;i++) {
@@ -51,4 +138,14 @@ void Movies::showMovieInfoFull(string title) {
     if(!isFind) {
         cout << title << " not found in database! :(";
     }
+}
+
+bool Movies::isMovieExist(string title) {
+    for(int i=0;i<rows;i++) {
+        if(raw_db[i][M_TITLE] == title) {
+            return true;
+        }
+    }
+    cout << title << " is not exist in database" << endl;
+    return false;
 }

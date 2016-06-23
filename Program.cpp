@@ -48,7 +48,6 @@ void Program::start() {
 
         login(username,password);
     } else {
-        movie_db->showMovieInfoFull("Matrix");
         cout << "Witaj, " << users_db->getUserFullName(login_id) << endl; // tu dodac powitanie imienne
         int choice = -1; //basic menu
         cout << "MENU:" << endl;
@@ -110,6 +109,14 @@ void Program::start() {
             break;
         case 104: //add movie
             addMovie();
+            goto START;
+            break;
+        case 105: //rem movie
+            remMovie();
+            goto START;
+            break;
+        case 106: //mod movie
+            modMovie();
             goto START;
             break;
         default:
@@ -433,4 +440,34 @@ void Program::addMovie() {
 
     KONIEC:
     delete[] new_movie;
+}
+
+void Program::modMovie() {
+    cout << "Podaj film ktory chcesz modyfikowac:" << endl;
+    string title;
+    cin.ignore(100, '\n');
+    getline(cin,title);
+    while(!cin.good()) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,title);
+    }
+    movie_db->modMovie(movie_db->changeToNonComma(title));
+    movie_db->saveFile();
+}
+
+void Program::remMovie() {
+    cout << "Podaj film ktory chcesz usunac:" << endl;
+    string title;
+    cin.ignore(100, '\n');
+    getline(cin,title);
+    while(!cin.good()) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,title);
+    }
+    movie_db->removeMovie(movie_db->changeToNonComma(title));
+    movie_db->saveFile();
 }

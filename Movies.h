@@ -30,6 +30,7 @@ class Movies : public File
         void showNonHiresMoviesFull();
         void showNonHiresMovies();
         void showMovieInfoFull(string title);
+        bool isMovieExist(string title);
     protected:
 
     private:

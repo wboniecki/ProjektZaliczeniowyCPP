@@ -62,13 +62,13 @@
 1466638318 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
 	"Program.h"
 
-1466443058 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.cpp
+1466687628 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.cpp
 	"Hires.h"
 
-1466443058 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.h
+1466687511 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.h
 	"File.h"
 
-1466455340 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\program.h
+1466687777 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\program.h
 	"Config.h"
 	<limits>
 	<cstdlib>
@@ -77,20 +77,25 @@
 	"Movies.h"
 	"Users.h"
 
-1466443827 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\movies.h
-	"File.h"
-
-1466455919 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\users.h
+1466672227 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\movies.h
 	"File.h"
 	"Config.h"
 	"Hires.h"
+	<algorithm>
 
-1466443058 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\movies.cpp
+1466669135 c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\users.h
+	"File.h"
+	"time.h"
+	<cstdlib>
+	"Config.h"
+	"Hires.h"
+
+1466687664 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\movies.cpp
 	"Movies.h"
 
-1466456173 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\program.cpp
+1466687827 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\program.cpp
 	"Program.h"
 
-1466455204 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\users.cpp
+1466669135 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\users.cpp
 	"Users.h"
 
