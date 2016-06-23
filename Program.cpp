@@ -58,6 +58,8 @@ void Program::start() {
         cout << "4. Pokaz dostepne filmy" << endl;
         cout << "5. Pokaz wszystkie filmy" << endl;
         cout << "6. Pokaz film szczegolowo" << endl;
+        cout << endl;
+        cout << "7. WYLOGUJ!" << endl;
         if(users_db->isUserAdmin(login_id)) {
             cout << "OPCJE ADMINISTRATORA:" << endl;
             cout << "101. Dodaj uzytkownika" << endl;
@@ -66,6 +68,7 @@ void Program::start() {
             cout << "104. Dodaj film" << endl;
             cout << "105. Usun film" << endl;
             cout << "106. Modyfikuj film" << endl;
+            cout << "120. Listuj wszystkie wypozyczenia" << endl;
             cout << "121. Szukaj uzytkownika(po id)" << endl;
             cout << "122. Szukaj uzytkownika(po imieniu i/lub nazwisku)" << endl;
             cout << "123. Listuj wszystkich uzytkownikow (id/imie/nazwisko)" << endl;
@@ -105,6 +108,33 @@ void Program::start() {
             hireMovie();
             goto START;
             break;
+        case 2:
+            returnMovie();
+            goto START;
+            break;
+        case 3: //wypozyczenia aktualne
+            if(movie_db->isUserHaveHiredMovie(login_id))
+                movie_db->showUserHiredMovie(login_id);
+            goto START;
+            break;
+        case 4: //dostepne filmy
+            movie_db->showNonHiresMovies();
+            goto START;
+            break;
+        case 5: //wszystkie filmy
+            movie_db->showAllMovies();
+            goto START;
+            break;
+        case 6: //Film full info
+            movieFullInfo();
+            goto START;
+            break;
+        case 7: //logout
+            isLogin = false;
+            login_id = -1;
+            cout << "WYLOGOWANO POMYSLNIE." << endl;
+            goto START;
+            break;
         case 101: // Add user
             addUser();
             goto START;
@@ -127,6 +157,26 @@ void Program::start() {
             break;
         case 106: //mod movie
             modMovie();
+            goto START;
+            break;
+        case 120: //wszystkie wypozyczenia
+            movie_db->showAllHires();
+            goto START;
+            break;
+        case 121: //wyswietl user po id
+            showUserById();
+            goto START;
+            break;
+        case 122: //wsywietl user po imieniu i nazwisku
+            showUsersByName();
+            goto START;
+            break;
+        case 123: //lista wszystkich userow
+            users_db->showAllUsers();
+            goto START;
+            break;
+        case 124: // lista userow, full info
+            users_db->showRawDb();
             goto START;
             break;
         default:
@@ -231,13 +281,11 @@ void Program::addUser() {
     /*ADRES*/
     cout << "Podaj adres: ";
     //cin >> new_user[U_ADDRESS];
-    cin.ignore(100, '\n');
     getline(cin,new_user[U_ADDRESS]);
     while(!cin.good() || new_user[U_ADDRESS] == "") {
         cin.clear();
         cin.sync();
         cout << "Wybierz raz jeszcze: ";
-        cin.ignore(100, '\n');
         getline(cin,new_user[U_ADDRESS]);
     }
     if(new_user[U_ADDRESS] == "WYJSCIE") {
@@ -265,6 +313,7 @@ KONIEC:
 void Program::remUser() {
     int rem_id;
     START:
+    int choice = 0;
     cout << "Podaj ID uzytkownika do usuniecia: ";
     cin >> rem_id;
     while(!cin.good()) {
@@ -279,13 +328,15 @@ void Program::remUser() {
         cout << "Uzytkownik o podanym ID nieistnieje!" << endl;
         goto START;
     }
-    //users_db->isUserCanBeDel();
+    if(!users_db->isUserCanBeDel(rs.str()) || rs.str()==login_id) {
+        cout << "ERROR!" << endl;
+        goto KONIEC;
+    }
     users_db->showUserById(rs.str());
     cout << "Usunac uzytkownika?" << endl;
     cout << "1. TAK" << endl;
     cout << "2. NIE (wybierz ponownie)" << endl;
     cout << "3. Powrot do menu." << endl;
-    int choice = 0;
     cin >> choice;
     while(!cin.good() || choice < 1 || choice > 3) {
         cin.clear();
@@ -304,6 +355,8 @@ void Program::remUser() {
     default:
         break;
     }
+    KONIEC:
+        cout << endl;
 }
 
 void Program::modUser() {
@@ -505,4 +558,76 @@ void Program::hireMovie() {
 
     KONIEC:
         cout << endl;
+}
+
+void Program::returnMovie() {
+    string choice;
+    if(!movie_db->isUserHaveHiredMovie(login_id)) {
+        goto KONIEC;
+    }
+    movie_db->showUserHiredMovie(login_id);
+    cout << "Podaj film do oddania:" << endl;
+    cin.ignore(100, '\n');
+    getline(cin,choice);
+    while(!cin.good() || !movie_db->isMovieExist(movie_db->changeToNonComma(choice))) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,choice);
+    }
+    movie_db->returnMovie(login_id,movie_db->changeToNonComma(choice));
+    cout << "Oddales film: " << choice << endl;
+    KONIEC:
+        cout << endl;
+}
+
+void Program::movieFullInfo() {
+    string title;
+    cout << "Podaj nazwe filmu:" << endl;
+    cin.ignore(100, '\n');
+    getline(cin,title);
+    while(!cin.good() || !movie_db->isMovieExist(movie_db->changeToNonComma(title))) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,title);
+    }
+    movie_db->showMovieInfoFull(movie_db->changeToNonComma(title));
+}
+
+void Program::showUserById() {
+    string id;
+    cout << "Podaj id uzytkownika:" << endl;
+    cin.ignore(100, '\n');
+    getline(cin,id);
+    while(!cin.good() || !users_db->isIdExist(id)) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,id);
+    }
+    users_db->showUserById(id);
+}
+
+void Program::showUsersByName() {
+    string name = "";
+    string surname = "";
+    cout << "Podaj imie uzytkownika:" << endl;
+    cin.ignore(100, '\n');
+    getline(cin,name);
+    while(!cin.good()) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,name);
+    }
+    cout << "Podaj naziwsko uzytkownika:" << endl;
+    getline(cin,surname);
+    while(!cin.good()) {
+            cin.clear();
+            cin.sync();
+            cout << "Wybierz raz jeszcze: ";
+            getline(cin,surname);
+    }
+    users_db->showUsersByName(name,surname);
 }

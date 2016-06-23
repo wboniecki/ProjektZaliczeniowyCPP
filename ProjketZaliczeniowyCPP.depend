@@ -12,7 +12,7 @@
 	<fstream>
 	<sstream>
 
-1466284997 source:c:\users\boniek\cpp\projektzaliczeniowycpp\file.cpp
+1466704183 source:c:\users\boniek\cpp\projektzaliczeniowycpp\file.cpp
 	"File.h"
 
 1466285003 c:\users\boniek\cpp\projektzaliczeniowycpp\file.h
@@ -29,16 +29,16 @@
 	"Movies.h"
 	"Users.h"
 
-1466637072 source:c:\users\boniek\cpp\projektzaliczeniowycpp\movies.cpp
+1466704265 source:c:\users\boniek\cpp\projektzaliczeniowycpp\movies.cpp
 	"Movies.h"
 
-1466638659 c:\users\boniek\cpp\projektzaliczeniowycpp\movies.h
+1466704243 c:\users\boniek\cpp\projektzaliczeniowycpp\movies.h
 	"File.h"
 	"Config.h"
 	"Hires.h"
 	<algorithm>
 
-1466634136 source:c:\users\boniek\cpp\projektzaliczeniowycpp\users.cpp
+1466703456 source:c:\users\boniek\cpp\projektzaliczeniowycpp\users.cpp
 	"Users.h"
 
 1466626312 c:\users\boniek\cpp\projektzaliczeniowycpp\users.h
@@ -48,18 +48,19 @@
 	"Config.h"
 	"Hires.h"
 
-1466283808 source:c:\users\boniek\cpp\projektzaliczeniowycpp\hires.cpp
+1466700846 source:c:\users\boniek\cpp\projektzaliczeniowycpp\hires.cpp
 	"Hires.h"
 
-1466611282 c:\users\boniek\cpp\projektzaliczeniowycpp\hires.h
+1466699373 c:\users\boniek\cpp\projektzaliczeniowycpp\hires.h
 	"File.h"
+	"time.h"
 
-1466632087 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
+1466703624 c:\users\boniek\cpp\projektzaliczeniowycpp\program.h
 	"Config.h"
 	<limits>
 	<cstdlib>
 
-1466638318 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
+1466704090 source:c:\users\boniek\cpp\projektzaliczeniowycpp\program.cpp
 	"Program.h"
 
 1466691309 source:c:\users\wiktor\desktop\cpp\projketzaliczeniowycpp\hires.cpp

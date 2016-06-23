@@ -26,12 +26,15 @@ class Movies : public File
         void addMovie(string* new_movie_c);
         void modMovie(string title);
         void removeMovie(string title);
-        void showAllMovieNames();
-        void showNonHiresMoviesFull();
+        void showAllMovies();
         void showNonHiresMovies();
         void showMovieInfoFull(string title);
         bool isMovieExist(string title);
         bool hireMovie(string id, string title);
+        void showUserHiredMovie(string id);
+        bool isUserHaveHiredMovie(string id);
+        void returnMovie(string id, string title);
+        void showAllHires();
     protected:
 
     private:

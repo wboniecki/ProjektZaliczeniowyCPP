@@ -94,11 +94,11 @@ void Users::showAllUsers() {
 }
 
 bool Users::isUserCanBeDel(string id) {
-//if(hires_db->currentUserHiresCount(id) == 0) {
-//return true;
-//} else {
-//return false;
-//}
+    if(hires_db->currentUserHiresCount(id) == 0) {
+        return true;
+    }
+    cout << "Przed usunieciem nalezy oddac filmy!" << endl;
+    return false;
 }
 
 void Users::remUser(string id) {
@@ -138,6 +138,7 @@ bool Users::isIdExist(string id) {
             return true;
         }
     }
+    cout << id << " <- takie ID nie istnieje!" << endl;
     return false;
 }
 

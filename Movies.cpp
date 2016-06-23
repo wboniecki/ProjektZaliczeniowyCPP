@@ -165,6 +165,7 @@ void Movies::showMovieInfoFull(string title) {
     if(!isFind) {
         cout << changeToComma(title) << " not found in database! :(";
     }
+    cout << endl;
 }
 
 bool Movies::isMovieExist(string title) {
@@ -178,11 +179,66 @@ bool Movies::isMovieExist(string title) {
 }
 
 bool Movies::hireMovie(string id, string title) {
-    if(!hires_db->isMovieHire(title) && hires_db->canUserHire(id)) {
-        hires_db->hireMovie(id,title);
-        hires_db->saveFile();
-        return true;
+    if(!hires_db->isMovieHire(title)) {
+            if(hires_db->canUserHire(id)) {
+                hires_db->hireMovie(id,title);
+                hires_db->saveFile();
+                return true;
+            } else {
+                return false;
+            }
     } else {
+        cout << "Film juz jest wypozyczony!" << endl;
         return false;
     }
+}
+
+bool Movies::isUserHaveHiredMovie(string id) {
+    if(hires_db->currentUserHiresCount(id)<1) {
+        cout << "Nie masz zadnych aktywnych wypozyczen!" << endl;
+        return false;
+    }
+    return true;
+}
+
+void Movies::showUserHiredMovie(string id) {
+    hires_db->showUserHires(id);
+}
+
+void Movies::returnMovie(string id, string title) {
+    if(!hires_db->isUserHaveThisMovie(id,title)) {
+        cout << "Nie masz filmu: " << changeToComma(title);
+        goto KONIEC;
+    }
+    hires_db->returnMovie(id,title);
+    hires_db->saveFile();
+    KONIEC:
+        cout << endl;
+}
+
+void Movies::showNonHiresMovies() {
+    for(int i=0;i<rows;i++) {
+        if(!hires_db->isMovieHire(raw_db[i][M_TITLE])) {
+            cout << changeToComma(raw_db[i][M_TITLE]) <<
+                    ",(" << changeToComma(raw_db[i][M_TYPE]) << "), " <<
+                    changeToComma(raw_db[i][M_DIRECTOR]) << ", " <<
+                    changeToComma(raw_db[i][M_TIME]) << "min." << endl;
+        }
+    }
+}
+
+void Movies::showAllMovies() {
+    for(int i=0;i<rows;i++) {
+        if(!hires_db->isMovieHire(raw_db[i][M_TITLE])) {
+            cout << "WYPOZYCZONE!!! ";
+        }
+        cout << changeToComma(raw_db[i][M_TITLE]) <<
+                ",(" << changeToComma(raw_db[i][M_TYPE]) << "), " <<
+                changeToComma(raw_db[i][M_DIRECTOR]) << ", " <<
+                changeToComma(raw_db[i][M_TIME]) << "min." << endl;
+    }
+}
+
+void Movies::showAllHires() {
+    hires_db->showRawDb();
 }

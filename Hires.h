@@ -23,6 +23,8 @@ class Hires : public File
         void setTitle(string oldVal, string newVal);
         bool isMovieHire(string title);
         void showUserHires(string id);
+        bool isUserHaveThisMovie(string id, string title);
+        void returnMovie(string id, string title);
     protected:
 
     private:

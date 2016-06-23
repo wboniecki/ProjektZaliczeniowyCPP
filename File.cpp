@@ -70,8 +70,9 @@ void File::saveFile() {
 void File::showRawDb() {
     for(int i=0;i<rows;i++) {
         for(int j=0;j<ysize;j++) {
-            cout << raw_db[i][j] <<endl;
+            cout << raw_db[i][j] <<"/";
         }
+        cout << endl;
     }
 }
 

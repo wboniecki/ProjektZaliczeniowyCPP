@@ -55,9 +55,47 @@ void Hires::setTitle(string oldVal, string newVal) {
 bool Hires::isMovieHire(string title) {
     for(int i=0;i<rows;i++) {
         if(raw_db[i][H_TITLE] == title) {
-            cout << "Film juz jest wypozyczony!" << endl;
             return true;
         }
     }
     return false;
+}
+
+void Hires::showUserHires(string id) {
+    for(int i=0;i<rows;i++) {
+        if(raw_db[i][H_ID] == id) {
+            cout << raw_db[i][H_TITLE] << ", wypozyczono: " << raw_db[i][H_HIREDATE] <<endl;
+        }
+    }
+}
+
+bool Hires::isUserHaveThisMovie(string id, string title) {
+    for(int i=0;i<rows;i++) {
+        if(raw_db[i][H_ID]==id && raw_db[i][H_TITLE]==title) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Hires::returnMovie(string id, string title) {
+    bool isDel = false;
+    for (int i=0;i<rows;i++) {
+        if(raw_db[i][H_ID] == id && raw_db[i][H_TITLE]==title) {
+            isDel = true;
+        }
+        if(isDel && i<rows-1) {
+            raw_db[i][H_ID] = raw_db[i+1][H_ID];
+            raw_db[i][H_TITLE] = raw_db[i+1][H_TITLE];
+            raw_db[i][H_HIREDATE] = raw_db[i+1][H_HIREDATE];
+            raw_db[i][H_RETURNDATE] = raw_db[i+1][H_RETURNDATE];
+            raw_db[i][H_DELIVERDATE] = raw_db[i+1][H_DELIVERDATE];
+        }
+    }
+    rows--;
+    raw_db[rows][H_ID] = "";
+    raw_db[rows][H_TITLE] = "";
+    raw_db[rows][H_HIREDATE] = "";
+    raw_db[rows][H_RETURNDATE] = "";
+    raw_db[rows][H_DELIVERDATE] = "";
 }

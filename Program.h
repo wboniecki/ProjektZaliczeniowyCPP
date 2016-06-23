@@ -23,6 +23,10 @@ class Program
         void remMovie();
         void modMovie();
         void hireMovie();
+        void returnMovie();
+        void movieFullInfo();
+        void showUserById();
+        void showUsersByName();
         Movies* movie_db;
         Users* users_db;
 };
